@@ -39,5 +39,11 @@ export const productApi = {
 
 export const orderApi = {
   place: (data: { couponCode?: string; items: OrderItem[] }) =>
-    http.post<Order>("/api/order", data).then((r) => r.data),
+    http
+      .post<Order>("/api/order", data, {
+        headers: {
+          "Idempotency-Key": crypto.randomUUID(),
+        },
+      })
+      .then((r) => r.data),
 };
