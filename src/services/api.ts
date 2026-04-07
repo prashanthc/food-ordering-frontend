@@ -46,4 +46,6 @@ export const orderApi = {
         },
       })
       .then((r) => r.data),
+
+  list: () => http.get<Order[]>("/api/orders").then((r) => r.data),
 };

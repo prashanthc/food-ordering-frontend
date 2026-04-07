@@ -1,4 +1,5 @@
-import { LogOut, ShoppingCart, UtensilsCrossed, User } from "lucide-react";
+import { LogOut, Receipt, ShoppingCart, UtensilsCrossed, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import { useCartStore } from "../store/cartStore";
 
@@ -50,6 +51,14 @@ export default function Navbar({ search, onSearchChange }: NavbarProps) {
           </div>
 
           <div className="flex items-center gap-3">
+            <Link
+              to="/orders"
+              className="p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition"
+              title="My Orders"
+            >
+              <Receipt size={22} />
+            </Link>
+
             <button
               onClick={openCart}
               className="relative p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition"
